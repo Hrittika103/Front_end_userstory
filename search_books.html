@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body style="background-color:darkkhaki">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    #t02 {
+width: 100%;    
+background: #000;
+color:white;
+}
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid burlywood;
+  float: left;
+  width: 80%;
+  background: beige;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: burlywood;
+  color: white;
+  font-size: 17px;
+  border: 1px solid black;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: chocolate;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<h2>Search Books</h2>
+
+
+<p>Write the title of the book that you want to search:</p>
+
+<form class="example" id="t02" action="table2.html" style="margin:auto;max-width:300px" >
+  <input type="text" placeholder="Search.." name="search2">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+</body>
+</html> 

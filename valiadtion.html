@@ -1,0 +1,214 @@
+<html>
+<head>
+<title> Form Validation </title>
+</head>
+
+<script>
+function validateForm() {
+    //collect form data in JavaScript variables
+    var pw1 = document.getElementById("pswd1").value;
+    var pw2 = document.getElementById("pswd2").value;
+    var name1 = document.getElementById("fname").value;
+	var name2 = document.getElementById("lname").value;
+    
+    //check empty first name field
+    if(name1 == "") {
+      document.getElementById("blankMsg").innerHTML = "**Fill the first name";
+      return false;
+    }
+    
+    //character data validation
+    if(!isNaN(name1)){
+      document.getElementById("blankMsg").innerHTML = "**Only characters are allowed";
+      return false;
+    }
+
+   //character data validation
+    if(!isNaN(name2)){
+      document.getElementById("charMsg").innerHTML = "**Only characters are allowed";
+      return false;
+    } 
+  
+    //check empty password field
+    if(pw1 == "") {
+      document.getElementById("message1").innerHTML = "**Fill the password please!";
+      return false;
+    }
+  
+    //check empty confirm password field
+    if(pw2 == "") {
+      document.getElementById("message2").innerHTML = "**Enter the password please!";
+      return false;
+    } 
+   
+    //minimum password length validation
+    if(pw1.length < 6) {
+      document.getElementById("message1").innerHTML = "**Password length must be atleast 6 characters";
+      return false;
+    }
+
+    //maximum length of password validation
+    if(pw1.length > 15) {
+      document.getElementById("message1").innerHTML = "**Password length should not be greater than characters";
+      return false;
+    }
+  
+    if(pw1 != pw2) {
+      document.getElementById("message2").innerHTML = "**Passwords are not same";
+      return false;
+    } else {
+      alert ("Your password created successfully");
+      //document.write(" Form has been submitted successfully");
+    }
+ }
+ function TDate() {
+    var UserDate = document.getElementById("userdate").value;
+    var ToDate = new Date();
+
+    if (new Date(UserDate).getTime() <= ToDate.getTime()) {
+          alert("The Date must be Bigger or Equal to today date");
+          return false;
+     }
+    return true;
+}
+</script>
+<style>
+  #t01 {
+width: 100%;    
+background-color: darkkhaki;
+color:black;
+}
+  input[type=text], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid brown;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: blanchedalmond;
+  }
+  input[type=number], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid brown;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: blanchedalmond;
+  }
+  input[type=date], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid brown;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: blanchedalmond;
+  }
+  input[type=email], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid brown;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: blanchedalmond;
+  }
+  input[type=password], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid brown;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: blanchedalmond;
+  }
+  
+  input[type=submit] {
+    width: 30%;
+    background-color:coral;
+    color:white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: black;
+  }
+
+   input[type=reset] {
+    width: 30%;
+    background-color:coral;
+    color:white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+   input[type=reset]:hover {
+    background-color:goldenrod;
+  }
+  
+  div {
+    border-radius: 5px;
+    background-color: brown;
+    padding: 20px;
+    
+  }
+  </style>
+
+<body>
+
+
+<form action="action_page.html" onsubmit ="return validateForm()" id="t01">
+
+  <label for="fname">First Name:</label><br>
+  <input type="text" id="fname" name="First Name" required><br><br>
+  <label for="lname">Last Name:</label><br>
+  <input type="text" id="lname" name="Last Name" required><br><br>
+  
+<label for="phone_number">Contact:</label><br>
+    <input type="number" id="phone_number" name="Contact" required><br><br>
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="Age" required><br><br>
+    <label for="gender">Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label><br>
+  <input type="radio" id="other" name="gender" value="other">
+  <label for="other">Other</label><br>
+  <label for="date">Date:</label><br>
+  <input type="date" name="StartDate" id="userdate" onchange="TDate()" required /><br>
+  <label for="email ">  Enter your email:</label><br>
+  <input type="email" id="email" name="email" required><br>
+
+<!-- Create a new password -->
+<td> Create Password* </td><br>
+<input type = "password" id = "pswd1" value = ""> 
+<span id = "message1" style="color:red"> </span> <br><br>
+
+<!?Enter confirm password -->
+<td> Confirm Password* </td><br>
+<input type = "password" id = "pswd2" value = ""> 
+<span id = "message2" style="color:red"> </span> <br><br>
+
+<!-- Click to verify valid password -->
+<input type = "submit" value = "Submit">
+
+<!-- Click to reset fields -->
+<button type = "reset" value = "Reset" >Reset</button>
+</form>
+</body>
+</html>
+
+ 
